@@ -12,7 +12,8 @@ A dead simple WebRTC based video conferencing utility.
 
 ### Method 2, Deploying on your own server :-
 
-TBD
+* Clone the repo using git clone https://github.com/Fazelesswhite/openMeet
+* 
 
 ### License 
 
