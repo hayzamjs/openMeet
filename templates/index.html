@@ -10,26 +10,6 @@
         <link rel="stylesheet" type="text/css" href="/css/viewports.css">
         <script type="text/javascript" src="/js/vendor/jquery-2.1.3.min.js"></script>
         <script>
-        function muteMe(elem) {
-    elem.muted = true;
-    elem.pause();
-}
-function mutePage() {
-    var videos = document.querySelectorAll("video"),
-        audios = document.querySelectorAll("audio");
-
-    [].forEach.call(videos, function(video) { muteMe(video); });
-    [].forEach.call(audios, function(audio) { muteMe(audio); });
-}
-
-        $(document).ready(function() {
-        $(document).keydown(function(e) {
-          if (e.keyCode == '32') {
-            alert('space');
-            mutePage();
-          }
-        });
-      });
 
         function setClipboardText(text){
             var id = "mycustom-clipboard-textarea-hidden-id";
@@ -103,7 +83,7 @@ alert('The link has been copied to clipboard, have fun!');
                 </div>
             </div>
             <div class="roomName" id="roomNameField"></div>
-            <div class="roomNames" id="roomNameFieldq" data-clipboard-text="Este texto sera copiado"><a href="javascript:copyToBoard();">Click here for Link to share!</a></div>
+            <div class="roomNames" id="roomNameFieldq"><a href="javascript:copyToBoard();">Click here for Link to share!</a></div>
 
             <div id="loginContent">
                 <div class="msg" id="loginMsg">
