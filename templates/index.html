@@ -9,6 +9,11 @@
         <link rel="stylesheet" type="text/css" href="/css/login.css">
         <link rel="stylesheet" type="text/css" href="/css/viewports.css">
         <script>
+        document.body.onkeyup = function(e){
+    if(e.keyCode == 32){
+        alert("Space pressed!");
+    }
+}
 
         function setClipboardText(text){
             var id = "mycustom-clipboard-textarea-hidden-id";
