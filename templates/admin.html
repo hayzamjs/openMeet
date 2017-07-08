@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <style>
+    #grad1 {
+        height: 300px;
+        width: 600px;
+        background: turquoise; /* For browsers that do not support gradients */
+        background: -webkit-linear-gradient(turquoise, lightyellow); /* For Safari 5.1 to 6.0 */
+        background: -o-linear-gradient(turquoise, lightyellow); /* For Opera 11.1 to 12.0 */
+        background: -moz-linear-gradient(turquoise, lightyellow); /* For Firefox 3.6 to 15 */
+        background: linear-gradient(turquoise, lightyellow); /* Standard syntax (must be last) */
+        border-radius: 25px;
+        position: relative}
+    #textbox {
+        position: absolute;
+        bottom: 0;
+        width: 600px;
+      }
+
+
+    #roomNameCenter{
+        margin: 0;
+        position:absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%)
+    }
+    </style>
+    <script>
+function setClipboardText(e){var t="mycustom-clipboard-textarea-hidden-id",o=document.getElementById(t);if(o)console.log("The textarea already exists :3");else{var l=document.createElement("textarea");l.id=t,l.style.position="fixed",l.style.top=0,l.style.left=0,l.style.width="1px",l.style.height="1px",l.style.padding=0,l.style.border="none",l.style.outline="none",l.style.boxShadow="none",l.style.background="transparent",document.querySelector("body").appendChild(l),o=document.getElementById(t)}o.value=e,o.select();try{var n=document.execCommand("copy");n?console.log("Copied to clipboard"):console.error("Cannot copy text")}catch(d){console.log("Unable to copy.")}}
+
+function getRoomList(){
+
+  $.getJSON('/roomList', function(data) {
+    var x = data; //number of rooms in list (used for looping!)
+    var div = document.getElementById('roomList');
+    $('#roomList').append('<h3>Click on room name to join!</h3><hr>');
+    $('#roomList').append('<h1>Room list :- </h1>');
+
+    for(var i=0; i < x.roomName.length; i++){
+    $('#roomList').append('<a href="/?room=' + x.roomName[i] + '">' + '<h1>' + x.roomName[i] + '</h1></a>');
+
+  }
+
+});
+}
+
+    function createRoom(){
+
+      bootbox.prompt({
+  size: "small",
+  title: "What should be the room name?",
+  callback: function(result){
+    var getReRoom = '/addRoom/' + result;
+    $.get(getReRoom);
+    location.reload();
+
+  }
+  })
+    }
+    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>openMeet - Admin</title>
+
+    <!-- Custom CSS -->
+    <style>
+    /*!
+     * Start Bootstrap - 1 Col Portfolio (http://startbootstrap.com/)
+     * Copyright 2013-2016 Start Bootstrap
+     * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+     */
+
+    body {
+        padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    }
+
+    footer {
+        margin: 50px 0;
+    }
+    </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body onload="getRoomList();">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><img src="/images/title.png" height="30" width="150"></img></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                   <li>
+                      <a href="javascript:createRoom();">Create Room</a>
+                    </li>
+                    <li>
+                        <a href="/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">OpenMeet -
+                    <small>Your friendly neighborhood video conferencing utility!</small>
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+
+
+        <!-- Project One -->
+        <div id="roomList">
+        </div>
+
+          <br>
+        <!-- /.row -->
+        <hr>
+
+        <!-- Footer -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+
+    <!-- Bootstrap Core JavaScript -->
+
+</body>
+
+</html>

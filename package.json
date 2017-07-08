@@ -1,0 +1,44 @@
+{
+    "name": "openmeet",
+    "version": "0.0.1",
+    "description": "openMeet a dead simple WebRTC based video conference tool",
+    "author": "yying, hayzam",
+    "license": "MIT",
+
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/fazelesswhite/openmeet.git"
+    },
+
+    "keywords": [
+        "node",
+        "webrtc",
+        "easyrtc",
+        "video"
+    ],
+
+    "dependencies": {
+        "easyrtc": "*",
+        "express": "*",
+        "nconf": "*",
+        "socket.io": "*",
+        "handlebars": "*",
+        "basic-auth": "*"
+
+    },
+
+    "devDependencies": {
+      "jsdoc": "3.3.3"
+    },
+
+    "engines": {
+        "node": "5.x"
+    },
+
+    "scripts": {
+        "doc": "./node_modules/.bin/jsdoc -r public --destination doc --readme README.md -c .jsdocrc",
+        "lint": "eslint --ext .js -c .eslintrc .",
+        "start": "node server.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    }
+}

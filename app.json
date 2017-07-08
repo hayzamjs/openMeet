@@ -1,0 +1,5 @@
+{
+  "name": "openMeet",
+  "repository": "https://github.com/fazelesswhite/openmeet",
+  "keywords": ["node", "webrtc", "easyrtc", "video"]
+}

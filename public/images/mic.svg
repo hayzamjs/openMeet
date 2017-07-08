@@ -1,0 +1,4 @@
+<svg id="micIcon" width="9" xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 0 9 16" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 9 16">
+<path d="M8,9c0,1.5-1.5,3-3,3H4c-1.5,0-3-1.5-3-3V6H0v3c0,2,2,4,4,4v2H1v1h7v-1H5v-2c2,0,4-2,4-4V6H8V9z"/>
+<path d="M4.995,11C6.103,11,7,10.1,7,9.008V1.992C7,0.892,6.106,0,4.995,0h-0.99C2.897,0,2,0.9,2,1.992v7.016   C2,10.108,2.894,11,4.005,11H4.995z"/>
+</svg>
