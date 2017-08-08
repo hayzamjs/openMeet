@@ -27,6 +27,11 @@ Since companies like MeetSpace are too expensive for small offices and such and 
 
 [//]: <> (openMeet is a fork of tubertc, which is a good project too but is slow development wise.)
 
+### Buy me a cup of coffee <3
+
+1LHT8uYsmQW8rCQjx58CJVZLgGxKL5pL89
+
+^ Bitcoin RULZ ALL
 
 ### License 
 
